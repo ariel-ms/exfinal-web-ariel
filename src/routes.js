@@ -4,6 +4,7 @@ const router = express.Router()
 const users = require('./controllers/users.js')
 const todos = require('./controllers/todos.js')
 const auth = require('./middleware/auth')
+var cors = require('cors');
 
 router.get('/users', auth, users.getUser)
 router.post('/users/login', users.login)
@@ -23,6 +24,8 @@ router.get('*', function(req, res) {
     error: 'This route does not exist, try /users or /todos'
   })
 })
+
+router.all('*', cors())
 
 module.exports = router
 
