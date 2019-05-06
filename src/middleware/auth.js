@@ -7,7 +7,7 @@ const auth = function( req, res, next ) {
     const token = req.header('Authorization').replace('Bearer ', '')
 
     if ( process.env.NODE_ENV === 'production'){
-      var secret = process.env.secret
+      var secret = process.env.SECRET
     } else {
       const config = require('../config.js')
       var secret = config.secret

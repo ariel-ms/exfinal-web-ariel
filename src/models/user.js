@@ -90,7 +90,7 @@ userSchema.methods.generateToken = function() {
   const user = this
 
   if ( process.env.NODE_ENV === 'production'){
-    var secret = process.env.secret
+    var secret = process.env.SECRET
   } else {
     const config = require('../config.js')
     var secret = config.secret
